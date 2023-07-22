@@ -16,3 +16,9 @@ This repo contains an exercise intended for Full Stack Software Engineers.
 1. Please invest only enough time needed to demonstrate your approach to problem solving and code design.  
 1. Within reason, treat your solution as if it would become a production system.
 1. If you have any questions, feel free to contact us at code_challenge@scoir.com
+
+## How-To
+
+## Assumptions
+TODO reword this
+I have designed the system layout expectign this to be a small-mid sized project. Some things I have done because of this is organizing the server by top-level feature as opposed to functionality. This should be more ideal for a small project such as this. I also grouped util and config in main space since it is such a small project.  
