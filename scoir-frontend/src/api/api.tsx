@@ -97,7 +97,7 @@ export async function getRandomDog(token: string) {
     }
   }
 
-  export async function clearAllDogs(token: string) {
+  export async function clearDogs(token: string) {
     try {
       const response = await fetch(`${baseURL}/users/clear`, {
         method: 'DELETE',
@@ -145,6 +145,55 @@ export async function getRandomDog(token: string) {
       console.error('Error during fetch:', error);
       // Return an empty JSON object on error
       return {};
+    }
+  }
+  
+  export async function removeDog(token: string, picture: string) {
+    try {
+      const response = await fetch(`${baseURL}/users/remove`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ picture }), // Send the picture to be removed in the request body
+      });
+  
+      if (!response.ok) {
+        // If the response status is not OK (2xx), throw an error
+        throw new Error('Network response was not ok');
+      }
+  
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error during fetch:', error);
+      // Return an empty JSON object on error
+      return {};
+    }
+  }
+  
+  export async function getAllBreeds(token: string) {
+    try {
+      const response = await fetch(`${baseURL}/dogs/breed/list/all`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+  
+      if (!response.ok) {
+        // If the response status is not OK (2xx), throw an error
+        throw new Error('Network response was not ok');
+      }
+  
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error during fetch:', error);
+      // Return an empty array on error
+      return [];
     }
   }
   

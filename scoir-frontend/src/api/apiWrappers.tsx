@@ -1,4 +1,4 @@
-import {getDogs, getRandomDog, getDogByBreed, addDog} from './api'
+import {getDogs, getRandomDog, getDogByBreed, addDog, removeDog, clearDogs} from './api'
 import noop from 'noop-ts';
 
 export async function loadDogs(token: string){
@@ -28,5 +28,15 @@ export async function addNewDog(token: string, breed?: string){
         return 
     }
     await addDog(token, newDog['message'])
+    await loadDogs(token)
+}
+
+export async function deleteDog(token: string, picture: string) {
+    await removeDog(token, picture)
+    await loadDogs(token)
+}
+
+export async function clearAllDogs(token: string){
+    await clearDogs(token)
     await loadDogs(token)
 }

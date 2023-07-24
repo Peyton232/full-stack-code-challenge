@@ -27,7 +27,6 @@ func NewService() *UserService {
 	return service
 }
 
-// TODO make sure this works with both URL types
 func getBreedFromURL(url string) string {
 	// Split the URL by "/"
 	parts := strings.Split(url, "/")

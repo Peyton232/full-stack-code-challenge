@@ -14,8 +14,8 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom'; // Import the useNavigate hook
 import Swal from 'sweetalert2'
-import {loginUser} from '../api'
-import { loadDogs } from '../apiWrappers';
+import {loginUser} from '../api/api'
+import { loadDogs } from '../api/apiWrappers';
 
 function Copyright(props: any) {
     return (
